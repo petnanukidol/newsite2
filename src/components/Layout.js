@@ -6,16 +6,8 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-// google analytics
-import ReactGA from 'react-ga';
-
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
-
-  // google analytics
-  ReactGA.initialize('UA-179699587-1');
-  ReactGA.pageview(window.location.pathname + window.location.search);
-
   return (
     <div>
       <Helmet>
@@ -55,6 +47,9 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
+
+        { /* Hub trafic veridification for pornhub */}
+        <meta name="hubtraffic-domain-validation"  content="ce0924717150722d" />
       </Helmet>
       <Navbar />
       <div>{children}</div>
