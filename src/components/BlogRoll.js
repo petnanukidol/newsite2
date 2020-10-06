@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
@@ -43,12 +44,19 @@ class BlogRoll extends React.Component {
                   </p>
                 </header>
                 <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+                    {post.frontmatter.description}
+                    <ul className="taglist">
+                        {post.frontmatter.tags.map((tag) => (
+                            <li key={tag.fieldValue}>
+                                <Link to={`/tags/${kebabCase(tag)}/`}>
+                                {tag}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <Link className="button" to={post.fields.slug}>
+                        より楽しめる組み合わせ →
+                    </Link>
                 </p>
               </article>
             </div>
@@ -76,7 +84,6 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
               id
               fields {
                 slug
@@ -86,6 +93,8 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
+                description
+                tags
                 featuredimage {
                   childImageSharp {
                     fluid(maxWidth: 120, quality: 100) {
