@@ -8,6 +8,7 @@ const FeatureGrid = ({ gridItems }) => (
       <div key={item.text} className="column is-6">
         <section className="section">
           <div className="has-text-centered">
+            <a href={item.href} target="_blank">
             <div
               style={{
                 width: '240px',
@@ -16,6 +17,7 @@ const FeatureGrid = ({ gridItems }) => (
             >
               <PreviewCompatibleImage imageInfo={item} />
             </div>
+            </a>
           </div>
           <p>{item.text}</p>
         </section>
