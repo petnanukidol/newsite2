@@ -18,10 +18,12 @@ description: >-
   anyone.
 intro:
   blurbs:
-    - image: /img/coffee.png
+    - image: /img/ichigocandy-banar.jpg
+      href: https://wlink.golden-gateway.com/id/29-10256-002-d8ba/
       text: >
         
-    - image: /img/coffee-gear.png
+    - image: /img/goldengateway-banner.jpg
+      href: https://wlink.golden-gateway.com/id/2-10012-999-d8ba/
       text: >
        
   heading: What we offer
